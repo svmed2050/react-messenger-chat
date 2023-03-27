@@ -99,3 +99,12 @@
   left: calc(50vw - 33px);
   top: calc(50vh - 22px);
 }
+
+footer {
+  text-align: center;
+  margin-top: calc(100vh - 70px);
+}
+
+footer a:nth-child(2) {
+  padding-left: 15px
+}
