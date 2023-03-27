@@ -15,7 +15,10 @@ export const AuthProvider = ({ children }) => {
 		onAuthStateChangedFire(auth, (user) => {
 			setUser(user)
 			setLoading(false)
-			if (user) history.push('/chats')
+
+			if (user) {
+				history.push('/chats')
+			}
 		})
 	}, [user, history])
 

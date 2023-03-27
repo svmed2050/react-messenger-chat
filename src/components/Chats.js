@@ -1,18 +1,15 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { ChatEngine } from 'react-chat-engine'
 import { auth } from '../firebase'
 import axios from 'axios'
 import { translitRuEn } from '../utils/translit'
-
 import { useAuth } from '../contexts/AuthContext'
 
 const Chats = () => {
 	const [loading, setLoading] = useState(true)
 	const history = useHistory()
 	const { user } = useAuth()
-
-	console.log(user)
 
 	const handleLogout = async () => {
 		await auth.signOut()
@@ -64,7 +61,9 @@ const Chats = () => {
 								'private-key': process.env.REACT_APP_CHAT_ENGINE_KEY,
 							},
 						})
-						.then(() => setLoading(false))
+						.then(() => {
+							setLoading(false)
+						})
 						.catch((error) => console.log(error))
 				})
 			})
@@ -84,7 +83,10 @@ const Chats = () => {
 			<ChatEngine
 				height='calc(100vh - 66px)'
 				projectID={process.env.REACT_APP_CHAT_ENGINE_ID}
-				userName={user.email || user.displayName}
+				userName={
+					user.email ||
+					translitRuEn(user.displayName).toLowerCase() + '@gmail.com'
+				}
 				userSecret={user.uid}
 			/>
 		</div>

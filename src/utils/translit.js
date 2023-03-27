@@ -139,7 +139,7 @@ export function translitRuEn(str) {
 					return undefined
 				}
 			})
-			.filter((i) => i != undefined)
+			.filter((i) => i !== undefined)
 
 		if (transLit.length > 0) {
 			return transLit[0]
