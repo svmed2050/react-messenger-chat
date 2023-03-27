@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
-import { auth } from '../firebase'
+import { auth, onAuthStateChangedFire } from '../firebase'
 
 const AuthContext = React.createContext()
 
@@ -12,14 +12,14 @@ export const AuthProvider = ({ children }) => {
 	const history = useHistory()
 
 	useEffect(() => {
-		auth.onAuthStateChanged((user) => {
+		onAuthStateChangedFire(auth, (user) => {
 			setUser(user)
 			setLoading(false)
 			if (user) history.push('/chats')
 		})
 	}, [user, history])
 
-	const value = [user]
+	const value = { user }
 
 	return (
 		<AuthContext.Provider value={value}>

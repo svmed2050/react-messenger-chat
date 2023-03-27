@@ -4,6 +4,7 @@ import {
 	GoogleAuthProvider,
 	FacebookAuthProvider,
 	signInWithRedirect,
+	onAuthStateChanged,
 } from 'firebase/auth'
 
 const firebaseConfig = {
@@ -26,6 +27,10 @@ export const facebookAuthProvider = new FacebookAuthProvider()
 
 export const signInWithRedirectAuth = (auth, provider) => {
 	return signInWithRedirect(auth, provider)
+}
+
+export const onAuthStateChangedFire = (auth, fn) => {
+	return onAuthStateChanged(auth, fn)
 }
 
 /* =============== */
