@@ -32,7 +32,9 @@ const Chats = () => {
 			.get('https://api.chatengine.io/users/me', {
 				headers: {
 					'project-id': process.env.REACT_APP_CHAT_ENGINE_ID,
-					'user-name': user.email || user.displayName,
+					'user-name':
+						user.email ||
+						translitRuEn(user.displayName).toLowerCase() + '@gmail.com',
 					'user-secret': user.uid,
 				},
 			})
@@ -48,7 +50,8 @@ const Chats = () => {
 				)
 				formdata.append(
 					'username',
-					user.email || translitRuEn(user.displayName)
+					user.email ||
+						translitRuEn(user.displayName).toLowerCase() + '@gmail.com'
 				)
 				formdata.append('secret', user.uid)
 
