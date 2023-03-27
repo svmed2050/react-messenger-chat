@@ -6,13 +6,13 @@
 
 ### Description
 
-Full-fledged firebase chat application with social
-authentication (including google and facebook),
-online-statuses, great design and functionality.
+Full-fledged firebase chat application with social<br/>
+authentication (including google and facebook),<br/>
+online-statuses, great design and functionality.<br/><br/>
 
-It also includes image support, sound
-notifications, the ability to create
-multiple rooms and much more.
+It also includes image support, sound<br/>
+notifications, the ability to create<br/>
+multiple rooms and much more.<br/>
 
 ### :gem: Used Technologies
 
